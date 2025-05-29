@@ -1,0 +1,10 @@
+[SCRIPT] "goldens Default Script"
+
+[COMMAND]
+  [CMDNAME] "example"
+  [ONCMDRUN] "java.lang.System.out.println('command activated')"
+
+[HACK]
+  [NAME] "swing-every-2s"
+  [ONINIT] "var swingTimer = 0;"
+  [ONRUN] "swingTimer++; if (swingTimer >= 40) { thePlayer.swingItem(); java.lang.System.out.println('Swung hand at tick: ' + swingTimer); swingTimer = 0; }"
