@@ -1,0 +1,10 @@
+[SCRIPT] "goldens Default Script"
+
+[COMMAND]
+  [NAME] "example"
+  [ONRUN] "System.out.println('command activated')"
+
+[HACK]
+  [NAME] "example-hack"
+  [ONINIT] "int timer = 10;"
+  [ONRUN] "timer++; System.out.println(timer)"
