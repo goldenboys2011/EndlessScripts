@@ -110,3 +110,106 @@
 | void                | fall                                 | (float distance)                                   | Applies fall logic.                                    |
 | void                | onKillEntity                         | (EntityLiving entity)                              | Called when player kills something.                    |
 | void                | setInPortal                          | ()                                               | Triggers portal behavior.                              |
+
+## ``theWorld``
+
+## Methods
+
+| Return Type            | Function Name                       | Arguments                                                                 |
+|------------------------|-------------------------------------|---------------------------------------------------------------------------|
+| WorldChunkManager      | getWorldChunkManager                | ()                                                                           |
+| World                  | World                               | (ISaveHandler isavehandler, String s, WorldProvider worldprovider, long l) |
+| World                  | World                               | (World world, WorldProvider worldprovider)                                  |
+| World                  | World                               | (ISaveHandler isavehandler, String s, long l)                               |
+| World                  | World                               | (ISaveHandler isavehandler, String s, long l, WorldProvider worldprovider)  |
+| IChunkProvider         | getChunkProvider                    | ()                                                                         |
+| void                   | getInitialSpawnLocation             | ()                                                                          |
+| void                   | setSpawnLocation                    | ()                                                                          |
+| int                    | getFirstUncoveredBlock              | (int i, int j)                                                              |
+| int                    | getBlockId                          | (int i, int k, int j)                                                       |
+| void                   | emptyMethod1                        | ()                                                                        |
+| void                   | spawnPlayerWithLoadedChunks         | (EntityPlayer entityplayer)                                                 |
+| void                   | saveWorld                           | (boolean flag, IProgressUpdate iprogressupdate)                             |
+| void                   | saveLevel                           | ()                                                                        |
+| boolean                | func_650_a                          | (int i)                                                                     |
+| int                    | getBlockId                          | (int i, int j, int k)                                                       |
+| Chunk                  | getChunkFromChunkCoords             | (int i, int j)                                                              |
+| boolean                | isAirBlock                          | (int i, int j, int k)                                                       |
+| boolean                | blockExists                         | (int i, int j, int k)                                                       |
+| boolean                | doChunksNearChunkExist              | (int i, int j, int k, int l)                                                |
+| boolean                | checkChunksExist                    | (int i, int j, int k, int l, int i1, int j1)                                |
+| Chunk                  | getChunkFromBlockCoords             | (int i, int j)                                                              |
+| boolean                | setBlockAndMetadata                 | (int i, int j, int k, int l, int i1)                                        |
+| boolean                | setBlock                            | (int i, int j, int k, int l)                                                |
+| Material               | getBlockMaterial                    | (int i, int j, int k)                                                       |
+| int                    | getBlockMetadata                    | (int i, int j, int k)                                                       |
+| void                   | setBlockMetadataWithNotify          | (int i, int j, int k, int l)                                                |
+| boolean                | setBlockMetadata                    | (int i, int j, int k, int l)                                                |
+| boolean                | setBlockWithNotify                  | (int i, int j, int k, int l)                                                |
+| boolean                | setBlockAndMetadataWithNotify       | (int i, int j, int k, int l, int i1)                                        |
+| void                   | markBlockNeedsUpdate                | (int i, int j, int k)                                                       |
+| void                   | notifyBlockChange                   | (int i, int j, int k, int l)                                                |
+| void                   | markBlocksDirtyVertical             | (int i, int j, int k, int l)                                                |
+| void                   | markBlockAsNeedsUpdate              | (int i, int j, int k)                                                       |
+| void                   | markBlocksDirty                     | (int i, int j, int k, int l, int i1, int j1)                                |
+| void                   | notifyBlocksOfNeighborChange        | (int i, int j, int k, int l)                                                |
+| void                   | notifyBlockOfNeighborChange         | (int i, int j, int k, int l)                                                |
+| boolean                | canBlockSeeTheSky                   | (int i, int j, int k)                                                       |
+| int                    | getFullBlockLightValue              | (int i, int j, int k)                                                       |
+| int                    | getBlockLightValue                  | (int i, int j, int k)                                                       |
+| int                    | getBlockLightValue_do               | (int i, int j, int k, boolean flag)                                         |
+| boolean                | canExistingBlockSeeTheSky           | (int i, int j, int k)                                                       |
+| int                    | getHeightValue                      | (int i, int j)                                                              |
+| void                   | neighborLightPropagationChanged     | (EnumSkyBlock enumskyblock, int i, int j, int k, int l)                     |
+| int                    | getSavedLightValue                  | (EnumSkyBlock enumskyblock, int i, int j, int k)                            |
+| void                   | setLightValue                       | (EnumSkyBlock enumskyblock, int i, int j, int k, int l)                     |
+| float                  | getBrightness                       | (int i, int j, int k, int l)                                                |
+| float                  | getLightBrightness                  | (int i, int j, int k)                                                       |
+| boolean                | isDaytime                           | ()                                                                          |
+| MovingObjectPosition   | rayTraceBlocks                      | (Vec3D vec3d, Vec3D vec3d1)                                                 |
+| MovingObjectPosition   | rayTraceBlocks_do                   | (Vec3D vec3d, Vec3D vec3d1, boolean flag)                                   |
+| MovingObjectPosition   | func_28105_a                        | (Vec3D vec3d, Vec3D vec3d1, boolean flag, boolean flag1)                    |
+| void                   | playSoundAtEntity                   | (Entity entity, String s, float f, float f1)                                |
+| void                   | playSoundEffect                     | (double d, double d1, double d2, String s, float f, float f1)               |
+| void                   | playRecord                          | (String s, int i, int j, int k)                                             |
+| void                   | spawnParticle                       | (String s, double d, double d1, double d2, double d3, double d4, double d5) |
+| boolean                | addWeatherEffect                    | (Entity entity)                                                             |
+| boolean                | entityJoinedWorld                   | (Entity entity)                                                             |
+| void                   | obtainEntitySkin                    | (Entity entity)                                                             |
+| void                   | releaseEntitySkin                   | (Entity entity)                                                             |
+| void                   | setEntityDead                       | (Entity entity)                                                             |
+| void                   | addWorldAccess                      | (IWorldAccess iworldaccess)                                                 |
+| void                   | removeWorldAccess                   | (IWorldAccess iworldaccess)                                                 |
+| List                   | getCollidingBoundingBoxes           | (Entity entity, AxisAlignedBB axisalignedbb)                                |
+| int                    | calculateSkylightSubtracted         | (float f)                                                                   |
+| Vec3D                  | func_4079_a                         | (Entity entity, float f)                                                    |
+| float                  | getCelestialAngle                   | (float f)                                                                   |
+| Vec3D                  | func_628_d                          | (float f)                                                                   |
+| Vec3D                  | getFogColor                         | (float f)                                                                   |
+| int                    | findTopSolidBlock                   | (int i, int j)                                                              |
+| float                  | getStarBrightness                   | (float f)                                                                   |
+| void                   | scheduleBlockUpdate                 | (int i, int j, int k, int l, int i1)                                        |
+| void                   | updateEntities                      | ()                                                                          |
+| void                   | func_31054_a                        | (Collection collection)                                                     |
+| void                   | updateEntity                        | (Entity entity)                                                             |
+| void                   | updateEntityWithOptionalForce       | (Entity entity, boolean flag)                                               |
+| boolean                | checkIfAABBIsClear                  | (AxisAlignedBB axisalignedbb)                                               |
+| boolean                | getIsAnyLiquid                      | (AxisAlignedBB axisalignedbb)                                               |
+| boolean                | isBoundingBoxBurning                | (AxisAlignedBB axisalignedbb)                                               |
+| boolean                | handleMaterialAcceleration          | (AxisAlignedBB axisalignedbb, Material material, Entity entity)            |
+| boolean                | isMaterialInBB                      | (AxisAlignedBB axisalignedbb, Material material)                            |
+| boolean                | isAABBInMaterial                    | (AxisAlignedBB axisalignedbb, Material material)                            |
+| Explosion              | createExplosion                     | (Entity entity, double d, double d1, double d2, float f)                    |
+| Explosion              | newExplosion                        | (Entity entity, double d, double d1, double d2, float f, boolean flag)      |
+| float                  | func_675_a                          | (Vec3D vec3d, AxisAlignedBB axisalignedbb)                                  |
+| void                   | onBlockHit                          | (EntityPlayer entityplayer, int i, int j, int k, int l)                     |
+| Entity                 | func_4085_a                         | (Class class1)                                                              |
+| TileEntity             | getBlockTileEntity                  | (int i, int j, int k)                                                       |
+| void                   | setBlockTileEntity                  | (int i, int j, int k, TileEntity tileentity)                                |
+| void                   | removeBlockTileEntity               | (int i, int j, int k)                                                       |
+| boolean                | isBlockOpaqueCube                   | (int i, int j, int k)                                                       |
+| boolean                | isBlockNormalCube                   | (int i, int j, int k)                                                       |
+| void                   | saveWorldIndirectly                 | (IProgressUpdate iprogressupdate)                                           |
+
+
+
