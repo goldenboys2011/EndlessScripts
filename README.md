@@ -2,6 +2,10 @@
 
 > Scripting language for the [EndlessClient](https://github.com/goldenboys2011/EndlessLauncher)
 
+  [![version](https://img.shields.io/badge/version-2.0-green.svg)](https://github.com/goldenboys2011/EndlessLauncher/releases/tag/2.0)
+  [![discord](https://img.shields.io/badge/Discord-join-7289DA.svg)](https://discord.gg/yPpfjwNzVy)
+  [![license](https://img.shields.io/badge/License-GPL_3.0-blue.svg)](https://github.com/goldenboys2011/EndlessLauncher/blob/latest/LICENSE)
+  
 ## API
 
 ### Structure
