@@ -73,6 +73,6 @@ Default script located at: `/Default.enscript`
 
 ### More Info
 
-See the [ScriptEngine Documentation](https://github.com/goldenboys2011/EndlessLauncher/wiki/ScriptEngine) for detailed APIs and advanced usage.
+See the [Rhino Documentation](https://mozilla.github.io/rhino/) for detailed APIs and advanced usage.
 
 ---
