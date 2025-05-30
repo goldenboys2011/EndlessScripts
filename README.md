@@ -68,6 +68,7 @@ Default script located at: `/Default.enscript`
 - `[ONRUN]` runs every game tick (~20 times per second)
 - All code needs to be in line
 
+> If you need help with the inline please visit [here](https://goldencube.dev/endless)
 ---
 
 ### More Info
