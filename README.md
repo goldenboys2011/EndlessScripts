@@ -19,7 +19,7 @@
 
 [HACK]
   [NAME] Hack name shown in GUI
-  [COLOR] Minecraft color code (§b)
+  [COLOR] Minecraft color code for the HUD (E.x "§b")
   [ONINIT] "JavaScript code (runs once on load)"
   [ONRUN] "JavaScript code (runs every tick if enabled)"
 ```
