@@ -7,81 +7,106 @@
 
 #### Properties
 
-| Name                   | Type            | Description                                            |
-|------------------------|-----------------|--------------------------------------------------------|
-| `mc`                   | `Minecraft`     | Reference to the Minecraft game instance.              |
-| `username`             | `String`        | The player’s username.                                 |
-| `dimension`            | `int`           | The dimension the player is currently in.              |
-| `inventory`            | `InventoryPlayer` | Player's inventory system.                           |
-| `inventorySlots`       | `Container`     | Active container the player is interacting with.       |
-| `score`                | `int`           | Player's current score (saved in NBT).                 |
-| `movementInput`        | `MovementInput` | Handles player's input (movement, jumping, sneaking).  |
-| `moveStrafing`         | `float`         | Left-right strafe input.                               |
-| `moveForward`          | `float`         | Forward-backward movement input.                       |
-| `isJumping`            | `boolean`       | Whether the player is attempting to jump.              |
-| `sleeping`             | `boolean`       | Whether the player is sleeping in a bed.               |
-| `sleepTimer`           | `int`           | Ticks since the player started sleeping.               |
-| `bedChunkCoordinates`  | `ChunkCoordinates` | Coordinates of bed when sleeping.                  |
-| `playerSpawnCoordinate`| `ChunkCoordinates` | Player's set spawn position.                       |
-| `startMinecartRidingCoordinate` | `ChunkCoordinates` | Position at minecart entry.                     |
-| `inPortal`             | `boolean`       | Whether the player is in a portal.                     |
-| `timeInPortal`         | `float`         | Portal teleportation progress.                         |
-| `prevTimeInPortal`     | `float`         | Previous tick's portal progress.                       |
-| `timeUntilPortal`      | `int`           | Portal cooldown in ticks.                              |
+| Type                | Name                                | Description                                             |
+|---------------------|-------------------------------------|---------------------------------------------------------|
+| Minecraft           | mc                                  | Reference to the Minecraft game instance.               |
+| String              | username                            | The player’s username.                                  |
+| int                 | dimension                           | The dimension the player is currently in.               |
+| String              | skinUrl                             | URL to the player's skin texture.                       |
+| int                 | score                               | Player's current score. Saved in NBT.                   |
+| InventoryPlayer     | inventory                           | Player’s inventory instance.                            |
+| Container           | inventorySlots                      | Current open container GUI.                             |
+| boolean             | sleeping                            | Whether the player is sleeping.                         |
+| ChunkCoordinates    | bedChunkCoordinates                 | Player's bed location.                                  |
+| int                 | sleepTimer                          | How long the player has been sleeping.                  |
+| ChunkCoordinates    | playerSpawnCoordinate               | Player’s set spawn point.                               |
+| ChunkCoordinates    | startMinecartRidingCoordinate       | Initial coordinate when starting to ride a minecart.    |
+| boolean             | inPortal                            | Whether the player is currently inside a portal.        |
+| float               | timeInPortal                        | Progress of portal teleportation.                       |
+| float               | prevTimeInPortal                    | Portal progress from previous tick.                     |
+| int                 | timeUntilPortal                     | Cooldown before portal teleportation can happen again.  |
+| MovementInput       | movementInput                       | Handles player's input (movement, jumping, sneaking).   |
+| float               | moveStrafing                        | Left-right strafe input.                                |
+| float               | moveForward                         | Forward-backward movement input.                        |
+| boolean             | isJumping                           | Whether the player is attempting to jump.               |
+| float               | moveSpeed                           | Player's movement speed.                                |
+| float               | defaultPitch                        | Default pitch angle.                                    |
+| float               | cameraPitch                         | Camera tilt.                                            |
+| boolean             | isMultiplayerEntity                 | Whether the player is in a multiplayer world.           |
+| float               | swingProgress                       | Swing animation progress.                               |
+| float               | prevSwingProgress                   | Previous tick’s swing progress.                         |
+| int                 | health                              | Current health.                                         |
+| int                 | prevHealth                          | Health from previous tick.                              |
+| int                 | hurtTime                            | Time since last damage.                                 |
+| int                 | maxHurtTime                         | Max duration of hurt animation.                         |
+| int                 | deathTime                           | Time since player died.                                 |
+| int                 | attackTime                          | Time between attacks.                                   |
+| float               | attackedAtYaw                       | Direction player was hit from.                          |
+| float               | field_9365_p (camera yaw?)          | Internal animation variable.                            |
+| int                 | livingSoundTime                     | Cooldown for ambient sounds.                            |
+| int                 | scoreValue                          | Score awarded when killed.                              |
+| Entity              | currentTarget                       | Target the player is attacking or interacting with.     |
+| int                 | numTicksToChaseTarget               | Ticks remaining to chase a target.                      |
+
 
 ---
 
 #### Methods
 
-| Method                          | Signature                                           | Description                                                  |
-|---------------------------------|-----------------------------------------------------|--------------------------------------------------------------|
-| `moveEntity`                    | `(double dx, double dy, double dz)`                | Moves the player in the world.                               |
-| `moveEntityWithHeading`         | `(float strafe, float forward)`                    | Applies player movement input to velocity.                   |
-| `updatePlayerActionState`       | `()`                                               | Updates strafing, jumping, sneaking, and sprinting state.    |
-| `onLivingUpdate`                | `()`                                               | Called every tick. Handles movement, portals, effects.       |
-| `onUpdate`                      | `()`                                               | Standard tick update. Often overridden in subclasses.        |
-| `jump`                          | `()`                                               | Makes the player jump.                                       |
-| `swingItem`                     | `()`                                               | Performs hand swing animation.                               |
-| `getCurrentEquippedItem`        | `(): ItemStack`                                    | Returns currently held item.                                 |
-| `destroyCurrentEquippedItem`    | `()`                                               | Destroys the currently held item.                            |
-| `attackTargetEntityWithCurrentItem` | `(Entity target)`                             | Attacks an entity with the current weapon.                   |
-| `collideWithPlayer`            | `(Entity entity)`                                  | Handles entity collision.                                    |
-| `dropCurrentItem`              | `()`                                               | Drops the currently equipped item.                           |
-| `dropPlayerItem`               | `(ItemStack itemstack)`                            | Drops a specific item.                                       |
-| `dropPlayerItemWithRandomChoice`| `(ItemStack itemstack, boolean flag)`             | Drops item with random offset.                               |
-| `joinEntityItemWithWorld`      | `(EntityItem item)`                                | Adds dropped item entity to the world.                       |
-| `preparePlayerToSpawn`         | `()`                                               | Prepares player instance to enter the world.                 |
-| `readEntityFromNBT`            | `(NBTTagCompound nbt)`                             | Loads player data from NBT.                                  |
-| `writeEntityToNBT`             | `(NBTTagCompound nbt)`                             | Saves player data to NBT.                                    |
-| `setEntityDead`                | `()`                                               | Marks player for removal.                                    |
-| `onDeath`                      | `(Entity killer)`                                  | Called when player dies.                                     |
-| `respawnPlayer`                | `()`                                               | Respawn logic for singleplayer.                              |
-| `onKillEntity`                 | `(EntityLiving target)`                            | Called when player kills an entity.                          |
-| `getScore`                     | `(): int`                                          | Returns the player’s score.                                  |
-| `addToPlayerScore`             | `(Entity entity, int value)`                       | Adds to player score on kill.                                |
-| `addStat`                      | `(StatBase stat, int amount)`                      | Increments a given statistic.                                |
-| `triggerAchievement`           | `(StatBase achievement)`                           | Awards a specific achievement.                               |
-| `addChatMessage`               | `(String message)`                                 | Adds a chat message to the HUD.                              |
-| `displayGUIChest`             | `(IInventory chest)`                               | Opens chest GUI.                                             |
-| `displayWorkbenchGUI`          | `(int x, int y, int z)`                            | Opens workbench GUI at the given location.                   |
-| `displayGUIFurnace`            | `(TileEntityFurnace furnace)`                      | Opens furnace GUI.                                           |
-| `displayGUIDispenser`          | `(TileEntityDispenser dispenser)`                  | Opens dispenser GUI.                                         |
-| `displayGUIEditSign`           | `(TileEntitySign sign)`                            | Opens sign editing GUI.                                      |
-| `closeScreen`                  | `()`                                               | Closes the current GUI.                                      |
-| `onItemPickup`                 | `(Entity item, int amount)`                        | Triggered when picking up items.                             |
-| `sleepInBedAt`                 | `(int x, int y, int z): EnumStatus`                | Tries to sleep in a bed.                                     |
-| `wakeUpPlayer`                 | `(boolean, boolean, boolean)`                      | Wakes player up.                                             |
-| `isInBed`                      | `(): boolean`                                      | Returns true if the player is in bed.                        |
-| `isPlayerSleeping`             | `(): boolean`                                      | Returns true if the player is sleeping.                      |
-| `isPlayerFullyAsleep`          | `(): boolean`                                      | Returns true if sleep timer passed threshold.                |
-| `isMovementBlocked`            | `(): boolean`                                      | True if movement is currently restricted.                    |
-| `attackEntityFrom`             | `(Entity attacker, int damage): boolean`           | Handles being attacked.                                      |
-| `damageEntity`                 | `(int damage)`                                     | Applies raw damage.                                          |
-| `getEyeHeight`                 | `(): float`                                        | Gets the eye height.                                         |
-| `getCurrentPlayerStrVsBlock`   | `(Block block): float`                             | Returns block break strength modifier.                       |
-| `canHarvestBlock`             | `(Block block): boolean`                           | Whether the player can harvest the block.                    |
-| `setInPortal`                 | `()`                                               | Marks the player as being inside a portal.                   |
-| `addMovementStat`             | `(double dx, double dy, double dz)`                | Stats for regular movement.                                  |
-| `addMountedMovementStat`      | `(double dx, double dy, double dz)`                | Stats for vehicle movement.                                  |
-| `fall`                         | `(float distance)`                                 | Handles fall damage.                                         |
-
+| Return Type         | Function Name                        | Arguments                                         | Description                                             |
+|---------------------|--------------------------------------|--------------------------------------------------|---------------------------------------------------------|
+| void                | moveEntity                           | (double dx, double dy, double dz)                | Moves the player in the world.                          |
+| void                | updatePlayerActionState              | ()                                               | Updates movement (strafing, jumping, etc.).            |
+| void                | onLivingUpdate                       | ()                                               | Tick handler: portals, achievements, movement.         |
+| void                | resetPlayerKeyState                  | ()                                               | Resets all movement key states.                        |
+| void                | handleKeyPress                       | (int key, boolean pressed)                       | Handles key state changes.                             |
+| void                | writeEntityToNBT                     | (NBTTagCompound nbt)                             | Serializes player data.                                |
+| void                | readEntityFromNBT                    | (NBTTagCompound nbt)                             | Deserializes player data.                              |
+| void                | closeScreen                          | ()                                               | Closes current GUI screen.                             |
+| void                | displayGUIEditSign                   | (TileEntitySign sign)                              | Opens sign editor GUI.                                 |
+| void                | displayGUIChest                      | (IInventory chest)                                 | Opens chest GUI.                                       |
+| void                | displayWorkbenchGUI                  | (int x, int y, int z)                              | Opens crafting GUI.                                    |
+| void                | displayGUIFurnace                    | (TileEntityFurnace furnace)                        | Opens furnace GUI.                                     |
+| void                | displayGUIDispenser                  | (TileEntityDispenser dispenser)                  | Opens dispenser GUI.                                   |
+| void                | onItemPickup                         | Entity item, int amount                          | Triggers item pickup effect.                           |
+| int                 | getPlayerArmorValue                  | ()                                               | Gets player's total armor level.                       |
+| void                | sendChatMessage                      | (String message)                                   | Sends a chat message. Supports `#` commands.           |
+| void                | dropCurrentItem                      | ()                                               | Drops currently held item.                             |
+| void                | dropPlayerItem                       | (ItemStack itemstack)                              | Drops a specified item.                                |
+| void                | dropPlayerItemWithRandomChoice       | (ItemStack itemstack, boolean flag)                | Drops item with possible randomization.                |
+| void                | joinEntityItemWithWorld              | (EntityItem entityitem)                            | Joins an item with the world entity list.              |
+| boolean             | canHarvestBlock                      | (Block block)                                      | Checks if player can harvest a block.                  |
+| float               | getCurrentPlayerStrVsBlock           | (Block block)                                      | Gets block breaking speed.                             |
+| boolean             | isMovementBlocked                    | ()                                               | Whether player movement is blocked.                    |
+| void                | collideWithPlayer                    | (Entity entity)                                    | Called on entity collision.                            |
+| void                | onDeath                              | (Entity entity)                                    | Called when player dies.                               |
+| void                | addToPlayerScore                     | (Entity entity, int i)                             | Increments score.                                      |
+| float               | getEyeHeight                         | ()                                               | Returns player’s eye height.                           |
+| boolean             | attackEntityFrom                     | (Entity entity, int i)                            | Called when damaged.                                   |
+| void                | damageEntity                         | (int i                                            | Applies damage to the player.                          |
+| void                | useCurrentItemOnEntity               | (Entity entity)                                   | Uses held item on entity.                              |
+| ItemStack           | getCurrentEquippedItem               | ()                                               | Returns currently held item.                           |
+| void                | destroyCurrentEquippedItem           | ()                                               | Destroys held item.                                    |
+| void                | swingItem                            | ()                                               | Performs swing animation.                              |
+| void                | attackTargetEntityWithCurrentItem    | (Entity entity)                                   | Attacks the target with held item.                     |
+| void                | respawnPlayer                        | ()                                               | Respawns the player.                                   |
+| void                | onItemStackChanged                   | (ItemStack itemstack)                             | Called when itemstack changes.                         |
+| void                | setEntityDead                        | ()                                               | Marks entity as dead.                                  |
+| boolean             | isEntityInsideOpaqueBlock            | ()                                               | Checks if inside an opaque block.                      |
+| EnumStatus          | sleepInBedAt                         | (int x, int y, int z)                             | Attempts to sleep.                                     |
+| boolean             | isInBed                              | ()                                               | Returns if player is in bed.                           |
+| float               | getBedOrientationInDegrees           | ()                                               | Gets player’s bed orientation.                         |
+| boolean             | isPlayerSleeping                     | ()                                               | Is player sleeping.                                    |
+| boolean             | isPlayerFullyAsleep                  | ()                                               | Is player fully asleep.                                |
+| void                | addChatMessage                       | (String s)                                         | Adds a chat message.                                   |
+| ChunkCoordinates    | getPlayerSpawnCoordinate             | ()                                               | Gets player’s spawn point.                             |
+| void                | setPlayerSpawnCoordinate             | (ChunkCoordinates coords)                          | Sets player’s spawn point.                             |
+| void                | triggerAchievement                   | (StatBase statbase)                                | Triggers an achievement.                               |
+| void                | addStat                              | (StatBase statbase, int i)                         | Increments a stat.                                     |
+| void                | jump                                 | ()                                               | Makes player jump.                                     |
+| void                | moveEntityWithHeading                | (float strafe, float forward)                      | Moves player based on input.                           |
+| void                | addMovementStat                      | (double x, double y, double z)                     | Increments movement stat.                              |
+| void                | addMountedMovementStat               | (double x, double y, double z)                    | Increments mounted movement stat.                      |
+| void                | fall                                 | (float distance)                                   | Applies fall logic.                                    |
+| void                | onKillEntity                         | (EntityLiving entity)                              | Called when player kills something.                    |
+| void                | setInPortal                          | ()                                               | Triggers portal behavior.                              |
