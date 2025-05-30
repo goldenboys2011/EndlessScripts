@@ -2,9 +2,9 @@
 
 > Scripting language for the [EndlessClient](https://github.com/goldenboys2011/EndlessLauncher)
 
-  [![version](https://img.shields.io/badge/version-2.0-green.svg)](https://github.com/goldenboys2011/EndlessLauncher/releases/tag/2.0)
+  [![version](https://img.shields.io/badge/version-0.1-green.svg)](https://github.com/goldenboys2011/EndlessScripts/releases/tag/0.1)
   [![discord](https://img.shields.io/badge/Discord-join-7289DA.svg)](https://discord.gg/yPpfjwNzVy)
-  [![license](https://img.shields.io/badge/License-GPL_3.0-blue.svg)](https://github.com/goldenboys2011/EndlessLauncher/blob/latest/LICENSE)
+  [![license](https://img.shields.io/badge/License-GPL_3.0-blue.svg)](https://github.com/goldenboys2011/EndlessScripts/blob/main/LICENSE)
   
 ## API
 
@@ -73,6 +73,14 @@ Default script located at: `/Default.enscript`
 - All code needs to be in line
 
 > If you need help with the inline please visit [here](https://goldencube.dev/endless)
+
+---
+
+### API Interaction with Game:
+
+- Anything with minecraft, available through `mc` variable (full list available [here](https://github.com/goldenboys2011/EndlessScripts/blob/main/MCLIST.md))
+- All player related functions and variables through `thePlayer` variable (full list available [here](https://github.com/goldenboys2011/EndlessScripts/blob/main/MCLIST.md))
+
 ---
 
 ### More Info
