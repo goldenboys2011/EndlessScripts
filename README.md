@@ -29,6 +29,7 @@
 Variable    | Description
 ----------- |------------
 thePlayer   | Access the local player
+theWorld    | Acces to world related stuff
 mc          | Access all Minecraft-related objects (world, input, etc.)
 print       | Print text to the console
 MathHelper  | Utility for math functions (sin, cos, etc.)
