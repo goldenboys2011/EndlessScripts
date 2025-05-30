@@ -76,8 +76,3 @@ Default script located at: `/Default.enscript`
 See the [ScriptEngine Documentation](https://github.com/goldenboys2011/EndlessLauncher/wiki/ScriptEngine) for detailed APIs and advanced usage.
 
 ---
-
-Let me know if you’d like to add:
-- Keybinds or hotkeys for `[COMMAND]`
-- Script reloading instructions
-- A section on contributing your own modules
