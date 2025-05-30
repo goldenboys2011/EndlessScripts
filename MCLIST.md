@@ -113,7 +113,72 @@
 
 ## ``theWorld``
 
-## Methods
+### Properties
+
+| Type                        | Name                       |
+|-----------------------------|----------------------------|
+| boolean                     | flag                       |
+| boolean                     | flag1                      |
+| boolean                     | flag2                      |
+| boolean                     | flag3                      |
+| boolean                     | flag4                      |
+| boolean                     | scheduledUpdatesAreImmediate |
+| boolean                     | editingBlocks              |
+| boolean                     | isNewWorld                 |
+| boolean                     | findingSpawnPoint          |
+| boolean                     | allPlayersSleeping         |
+| boolean                     | multiplayerWorld           |
+| boolean                     | field_31055_L              |
+| int                         | i, j, k, l, i1, j1, k1, l1, i2, j2, k2, l2, i3, j3, k3, l3, i4, j4, k4 |
+| int                         | autosavePeriod             |
+| int                         | difficultySetting          |
+| int                         | skylightSubtracted         |
+| int                         | field_9437_g               |
+| int                         | field_9436_h               |
+| int                         | field_27168_F              |
+| int                         | field_27172_i              |
+| int                         | lightingUpdatesCounter     |
+| int                         | lightingUpdatesScheduled   |
+| int                         | soundCounter               |
+| byte                        | byte0                      |
+| double                      | d, d1, d2, d3, d4, d5, d6, d7, d8 |
+| float                       | f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13 |
+| float                       | prevRainingStrength        |
+| float                       | rainingStrength            |
+| float                       | prevThunderingStrength     |
+| float                       | thunderingStrength         |
+| long                        | field_1019_F               |
+| long                        | lockTimestamp              |
+| long                        | l, l1                      |
+| Random                      | rand                       |
+| Chunk                       | chunk, chunk1              |
+| Block                       | block, block1              |
+| TileEntity                  | tileentity, tileentity1    |
+| Entity                      | entity, entity1, entity2   |
+| EntityPlayer                | entityplayer, entityplayer1 |
+| MovingObjectPosition        | movingobjectposition, movingobjectposition1 |
+| AxisAlignedBB               | axisalignedbb, axisalignedbb1 |
+| ChunkProviderLoadOrGenerate| chunkproviderloadorgenerate |
+| WorldProvider               | worldProvider              |
+| IChunkProvider              | chunkProvider              |
+| ISaveHandler                | saveHandler                |
+| WorldInfo                   | worldInfo                  |
+| BiomeGenBase                | biomegenbase               |
+| NextTickListEntry           | nextticklistentry          |
+| MetadataChunkBlock          | metadatachunkblock         |
+| ChunkCoordIntPair           | chunkcoordintpair          |
+| ChunkCache                  | chunkcache                 |
+| Vec3D                       | vec3d, vec3d2              |
+| Explosion                   | explosion                  |
+| NBTTagCompound              | nbttagcompound             |
+| List                        | lightingToUpdate, loadedEntityList, unloadedEntityList, loadedTileEntityList, field_30900_E, playerEntities, weatherEffects, field_1012_M |
+| ArrayList                   | collidingBoundingBoxes     |
+| TreeSet                     | scheduledTickTreeSet       |
+| Set                         | scheduledTickSet, positionsToUpdate |
+| MapStorage                  | field_28108_z              |
+| Iterator                    | iterator, iterator1        |
+
+### Methods
 
 | Return Type            | Function Name                       | Arguments                                                                 |
 |------------------------|-------------------------------------|---------------------------------------------------------------------------|
