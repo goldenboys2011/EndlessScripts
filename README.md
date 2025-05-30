@@ -41,17 +41,16 @@ MathHelper  | Utility for math functions (sin, cos, etc.)
 Default script located at: `/Default.enscript`
 
 ```ini
-[SCRIPT] "ExampleScript"
+[SCRIPT] "goldens Default Script"
 
 [COMMAND]
-  [NAME] SayHi
-  [ONRUN] "print('Hello from command!')"
+  [CMDNAME] "example"
+  [ONCMDRUN] "java.lang.System.out.println('command activated')"
 
 [HACK]
-  [NAME] AutoJump
-  [COLOR] §a
-  [ONINIT] "print('AutoJump enabled')"
-  [ONRUN] "if (thePlayer.onGround) { thePlayer.jump(); }"
+  [NAME] "swing-every-2s"
+  [ONINIT] "var swingTimer = 0;"
+  [ONRUN] "swingTimer++; if (swingTimer >= 40) { thePlayer.swingItem(); java.lang.System.out.println('Swung hand at tick: ' + swingTimer); swingTimer = 0; }"
 ```
 
 ---
