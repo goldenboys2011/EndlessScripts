@@ -1,6 +1,19 @@
 # Available actions through variables
 
-## `MC`
+## `mc`
+> TO BE DONE: MAP PROPERTIES AND METHODS
+
+#### Properties
+
+| Type                | Name                                | Description                                             |
+|---------------------|-------------------------------------|---------------------------------------------------------|
+| -                   | -                                   | -                                                       |
+
+#### Methods
+
+| Return Type         | Function Name                        | Arguments                                         | Description                                             |
+|---------------------|--------------------------------------|--------------------------------------------------|---------------------------------------------------------|
+| -                   | -                                   | -                                                       | -                                                  |
 
 ## `thePlayer`
 > ### Reference (`EntityPlayerSP` or `EntityPlayer`)
