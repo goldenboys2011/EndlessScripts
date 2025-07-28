@@ -80,6 +80,7 @@ Default script located at: `/Default.enscript`
 
 - Anything with minecraft, available through `mc` variable (full list available [here](https://github.com/goldenboys2011/EndlessScripts/blob/main/MCLIST.md))
 - All player related functions and variables through `thePlayer` variable (full list available [here](https://github.com/goldenboys2011/EndlessScripts/blob/main/MCLIST.md))
+- All world related functions and variables through `theWorld` variable (full list available [here](https://github.com/goldenboys2011/EndlessScripts/blob/main/MCLIST.md))
 
 ---
 
